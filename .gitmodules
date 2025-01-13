@@ -1,0 +1,3 @@
+[submodule "Libs/dht11-stm32f4"]
+	path = Libs/dht11-stm32f4
+	url = git@github.com:Baryonics/dht11-stm32f4.git
