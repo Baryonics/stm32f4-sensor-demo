@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.22)
 # User is free to modify the file as much as necessary
 #
 
-# Setup compiler settings
+# Setup compiler settings   
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
@@ -19,7 +19,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME stm32f4-sensor-demo)
+set(CMAKE_PROJECT_NAME testimctest)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
@@ -53,6 +53,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    
 )
 
 # Add project symbols (macros)
@@ -60,9 +61,12 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined symbols
 )
 
+# Add DHT11 library
+add_subdirectory(Libs/dht11-stm32f4)
+
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-
+    dht11-stm32f4
     # Add user defined libraries
 )
